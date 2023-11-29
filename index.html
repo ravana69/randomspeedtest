@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Speed Test</title>
+  
+  <style>
+    body {
+      background: #181818;
+      color: #ddd;  
+    }
+    
+    button {
+      padding: 12px 24px;
+      border-radius: 8px; 
+      border: none;
+      background: #30475e;   
+      color: #f05454;
+      font-size: 16px;
+      cursor: pointer;  
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <button onclick="generateRandomURL()">Generate Image</button>
+  
+  <img id="speedtest-image" width="400">
+  
+  <p id="result-url" style="font-family:sans-serif; margin-top:12px"></p>
+
+  <script>
+    
+    function generateRandomURL() {
+    
+      const min = 200000000;
+      const max = 15568461930;  
+    
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      const url = `https://www.speedtest.net/result/${randomNumber}.png`;
+      
+      let img = document.getElementById("speedtest-image");
+      img.src = url;
+
+      let resultParagraph = document.getElementById("result-url");
+      resultParagraph.innerText = url;
+      
+    }
+
+  </script>
+
+</body>  
+</html>
